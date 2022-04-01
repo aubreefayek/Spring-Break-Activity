@@ -66,4 +66,4 @@ print(model.year.built)
 
 After reviewing all Residual Mean squared errors, the best model is formed under square feet. The model based on square feet has the lowest RMSE. 
 
-Problem 3: 
+Problem 3: Insert problem 
