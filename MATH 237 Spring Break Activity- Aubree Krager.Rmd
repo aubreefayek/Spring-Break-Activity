@@ -1,0 +1,67 @@
+---
+title: "MATH 237 SPring Break Activity-Aubree Krager"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+FullertonHousing = read.csv("~/m237/FullertonHousing.csv", header = TRUE)
+attach(FullertonHousing)
+```
+
+Problem 1: 
+In the Fullerton Housing data set, let PRICE be the response and consider BEDS, BATHS, SQUARE_FEET, and YEAR-Built to be your predictors. First, fit a multiple linear regression model to this data will all four predictors in the model. 
+
+```{r}
+four.predictors= lm(PRICE~ BEDS+ BATHS+ SQUARE_FEET +YEAR_BUILT, data=FullertonHousing)
+four.predictors
+summary(four.predictors)
+```
+This model does not seem to fit the data accurately. There is a high standard error of $127,200 with 190 degrees of freedom. This is probably not the best data to choose. 
+
+
+Problem 2: Consider the four possible models that have only one predictor. Using the 5-fold cross validation technique, compare RMSE of the four models. Which one is a better model? 
+
+This will perform 5-fold method for BEDS. 
+
+```{r}
+library(caret)
+
+Fullerton=data.frame(FullertonHousing)
+
+ctrl <- trainControl(method = "cv", number = 5)
+model.beds <- train(PRICE~ BEDS, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.beds)
+
+```
+
+This will perform 5-fold method  for BATHS. 
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.baths <- train(PRICE~ BATHS, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.baths)
+```
+
+This will perform 5-fold method for SQUARE_FEET.
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.square.feet <- train(PRICE~ SQUARE_FEET, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.square.feet)
+```
+
+Lastly, this will perform five-fold method on YEAR_BUILT.
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.year.built <- train(PRICE~ YEAR_BUILT, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.year.built)
+```
+
+After reviewing all Residual Mean squared errors, the best model is formed under square feet. The model based on square feet has the lowest RMSE. 
