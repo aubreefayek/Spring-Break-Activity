@@ -1,6 +1,10 @@
 ---
-title: "MATH 237 SPring Break Activity-Aubree Krager"
-output: html_document
+title: "MATH 237 SPring Break Activity"
+author: "Aubree, Nick & Chandra"
+date: "3/10/2022"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
