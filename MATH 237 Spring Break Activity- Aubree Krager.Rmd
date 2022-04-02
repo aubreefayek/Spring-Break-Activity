@@ -67,3 +67,122 @@ print(model.year.built)
 After reviewing all Residual Mean squared errors, the best model is formed under square feet. The model based on square feet has the lowest RMSE. 
 
 Problem 3: Insert problem 
+Consider all six models that have only two predictors. For example lm(PRICE~BEDS+BATHS). Using the 5-fold cross validation technique, compare the RMSE of the six models. Which one is a better model?
+BEDS, BATHS, SQUARE_FEET, and YEAR-Built
+beds and baths
+beds and square feet
+beds and year built
+baths and square feet
+baths and year built
+square feet and year built
+
+beds and baths
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BEDBATH <- train(PRICE~ BEDS + BATHS, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDBATH)
+```
+
+beds and square feet 
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BEDFOOT <- train(PRICE~ BEDS + SQUARE_FEET, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDFOOT)
+```
+
+beds and year built
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BEDBUILT <- train(PRICE~ BEDS + YEAR_BUILT, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDBUILT)
+
+```
+
+baths and square feet
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BATHFOOT <- train(PRICE~ BATHS + SQUARE_FEET, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BATHFOOT)
+
+```
+
+baths and year built
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BATHBUILT <- train(PRICE~ BATHS + YEAR_BUILT, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BATHBUILT)
+```
+
+square feet and year built
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.SQUAREBUILT <- train(PRICE~ SQUARE_FEET + YEAR_BUILT, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.SQUAREBUILT)
+```
+
+
+
+PROBLEM 4)
+
+BEDS, BATHS, SQUARE_FEET, and YEAR-Built
+
+BEDS BATHS AND SQUARE FEET
+
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BEDBATHFEET <- train(PRICE~ SQUARE_FEET + BEDS + BATHS, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDBATHFEET)
+```
+
+BATHS SQUARE FEET AND YEAR BUILT
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BATHFEETBUILT <- train(PRICE~ SQUARE_FEET + YEAR_BUILT + BATHS, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDBATHFEET)
+```
+
+
+BEDS SQUARE FEET AND YEAR BUILT 
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BEDBUILTFEET <- train(PRICE~ SQUARE_FEET + BEDS + YEAR_BUILT, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDBUILTFEET)
+```
+
+BEDS BATHS YEAR BUILT
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.BEDBATHBUILT <- train(PRICE~ YEAR_BUILT + BEDS + BATHS, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.BEDBATHBUILT)
+```
+
+5) Cross validation using all 4 predictors
+```{r}
+ctrl <- trainControl(method = "cv", number = 5)
+model.all <- train(PRICE~ SQUARE_FEET + BEDS + BATHS + YEAR_BUILT, 
+               data = FullertonHousing, method = "lm", trControl = ctrl)
+
+print(model.all)
+```
+
+
