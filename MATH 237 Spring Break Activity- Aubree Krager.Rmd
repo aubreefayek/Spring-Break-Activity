@@ -1,7 +1,13 @@
 ---
+<<<<<<< HEAD
 title: "MATH 237 Spring Break Activity"
 author: "Aubree Krager, Chandra Lindy, and Nicholas Noel"
 date: "April 4th, 2022"
+=======
+title: "MATH 237 SPring Break Activity"
+author: "Aubree, Nick & Chandra"
+date: "3/10/2022"
+>>>>>>> 20a5ca8 (Updated title - Pull request example)
 output:
   pdf_document: default
   html_document: default
