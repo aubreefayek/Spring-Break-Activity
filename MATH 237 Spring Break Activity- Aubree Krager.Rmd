@@ -1,7 +1,7 @@
 ---
-title: "MATH 237 SPring Break Activity"
-author: "Aubree, Nick & Chandra"
-date: "3/10/2022"
+title: "MATH 237 Spring Break Activity"
+author: "Aubree Krager, Chandra Lindy, and Nicholas Noel"
+date: "April 4th, 2022"
 output:
   pdf_document: default
   html_document: default
@@ -9,11 +9,12 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(caret)
 FullertonHousing = read.csv("~/m237/FullertonHousing.csv", header = TRUE)
 attach(FullertonHousing)
 ```
 
-Problem 1: 
+__Problem 1__:
 In the Fullerton Housing data set, let PRICE be the response and consider BEDS, BATHS, SQUARE_FEET, and YEAR-Built to be your predictors. First, fit a multiple linear regression model to this data will all four predictors in the model. 
 
 ```{r}
@@ -24,13 +25,11 @@ summary(four.predictors)
 This model does not seem to fit the data accurately. There is a high standard error of $127,200 with 190 degrees of freedom. This is probably not the best data to choose. 
 
 
-Problem 2: Consider the four possible models that have only one predictor. Using the 5-fold cross validation technique, compare RMSE of the four models. Which one is a better model? 
+__Problem 2__: Consider the four possible models that have only one predictor. Using the 5-fold cross validation technique, compare RMSE of the four models. Which one is a better model? 
 
 This will perform 5-fold method for BEDS. 
 
 ```{r}
-library(caret)
-
 Fullerton=data.frame(FullertonHousing)
 
 ctrl <- trainControl(method = "cv", number = 5)
@@ -38,10 +37,10 @@ model.beds <- train(PRICE~ BEDS,
                data = FullertonHousing, method = "lm", trControl = ctrl)
 
 print(model.beds)
-
 ```
+The reported log(RMSE) is 12.19813.
 
-This will perform 5-fold method  for BATHS. 
+This will perform 5-fold method for BATHS. 
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.baths <- train(PRICE~ BATHS, 
@@ -49,6 +48,7 @@ model.baths <- train(PRICE~ BATHS,
 
 print(model.baths)
 ```
+The reported log(RMSE) is 12.2937.
 
 This will perform 5-fold method for SQUARE_FEET.
 ```{r}
@@ -58,6 +58,7 @@ model.square.feet <- train(PRICE~ SQUARE_FEET,
 
 print(model.square.feet)
 ```
+The reported log(RMSE) is 11.79194.
 
 Lastly, this will perform five-fold method on YEAR_BUILT.
 ```{r}
@@ -67,20 +68,14 @@ model.year.built <- train(PRICE~ YEAR_BUILT,
 
 print(model.year.built)
 ```
+The reported log(RMSE) is 12.57814.
 
-After reviewing all Residual Mean squared errors, the best model is formed under square feet. The model based on square feet has the lowest RMSE. 
+After reviewing all RMSE's, the best model is formed under the variable SQUARE_FEET. The model based on SQUARE_FEET has the lowest RMSE. 
 
-Problem 3: Insert problem 
-Consider all six models that have only two predictors. For example lm(PRICE~BEDS+BATHS). Using the 5-fold cross validation technique, compare the RMSE of the six models. Which one is a better model?
-BEDS, BATHS, SQUARE_FEET, and YEAR-Built
-beds and baths
-beds and square feet
-beds and year built
-baths and square feet
-baths and year built
-square feet and year built
+__Problem 3__: Consider all six models that have only two predictors. For example lm(PRICE~BEDS+BATHS). Using the 5-fold cross validation technique, compare the RMSE of the six models. Which one is a better model?
 
-beds and baths
+
+The following model has the predictors BEDS and BATHS.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BEDBATH <- train(PRICE~ BEDS + BATHS, 
@@ -88,8 +83,9 @@ model.BEDBATH <- train(PRICE~ BEDS + BATHS,
 
 print(model.BEDBATH)
 ```
+The reported log(RMSE) for this model is 12.16248.
 
-beds and square feet 
+The following model has the predictors BEDS and SQUARE_FEET. 
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BEDFOOT <- train(PRICE~ BEDS + SQUARE_FEET, 
@@ -97,8 +93,9 @@ model.BEDFOOT <- train(PRICE~ BEDS + SQUARE_FEET,
 
 print(model.BEDFOOT)
 ```
+The reported log(RMSE) for this model is 11.7949.
 
-beds and year built
+The following model has the predictors BEDS and YEAR_BUILT.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BEDBUILT <- train(PRICE~ BEDS + YEAR_BUILT, 
@@ -107,8 +104,9 @@ model.BEDBUILT <- train(PRICE~ BEDS + YEAR_BUILT,
 print(model.BEDBUILT)
 
 ```
+The reported log(RMSE) for this model is 12.2393.
 
-baths and square feet
+The following model has the predictors BATHS and SQUARE_FEET.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BATHFOOT <- train(PRICE~ BATHS + SQUARE_FEET, 
@@ -117,8 +115,9 @@ model.BATHFOOT <- train(PRICE~ BATHS + SQUARE_FEET,
 print(model.BATHFOOT)
 
 ```
+The reported log(RMSE) for this model is 11.77536.
 
-baths and year built
+The following model has the predictors BATHS and YEAR_BUILT.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BATHBUILT <- train(PRICE~ BATHS + YEAR_BUILT, 
@@ -126,8 +125,9 @@ model.BATHBUILT <- train(PRICE~ BATHS + YEAR_BUILT,
 
 print(model.BATHBUILT)
 ```
+The reported log(RMSE) for this model is 12.27687.
 
-square feet and year built
+The following model has the predictors SQUARE_FEET and YEAR_BUILT.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.SQUAREBUILT <- train(PRICE~ SQUARE_FEET + YEAR_BUILT, 
@@ -135,15 +135,14 @@ model.SQUAREBUILT <- train(PRICE~ SQUARE_FEET + YEAR_BUILT,
 
 print(model.SQUAREBUILT)
 ```
+The reported log(RMSE) for this model is 11.7563.
+
+With this group the best model considers the varaibles SQUARE_FEET and YEAR_BUILT. This model has the lowest RMSE. 
 
 
+__Problem 4__: Consider all four possible models that have three predictors. For example lm(PRICE~BEDS+BATHS+SQUARE_FEET). Using the 5-fold cross validation technique compare the RMSE of the four models. Which one is a better model?
 
-PROBLEM 4)
-
-BEDS, BATHS, SQUARE_FEET, and YEAR-Built
-
-BEDS BATHS AND SQUARE FEET
-
+The following model has the predictors BEDS, BATH, and SQUARE_FEET.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BEDBATHFEET <- train(PRICE~ SQUARE_FEET + BEDS + BATHS, 
@@ -151,8 +150,9 @@ model.BEDBATHFEET <- train(PRICE~ SQUARE_FEET + BEDS + BATHS,
 
 print(model.BEDBATHFEET)
 ```
+The reported log(RMSE) is 11.75978.
 
-BATHS SQUARE FEET AND YEAR BUILT
+The following model has the predictors BATHSM, SQUARE_FEET, and YEAR_BUILT.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BATHFEETBUILT <- train(PRICE~ SQUARE_FEET + YEAR_BUILT + BATHS, 
@@ -160,9 +160,9 @@ model.BATHFEETBUILT <- train(PRICE~ SQUARE_FEET + YEAR_BUILT + BATHS,
 
 print(model.BEDBATHFEET)
 ```
+The reported log(RMSE) is 11.75978.
 
-
-BEDS SQUARE FEET AND YEAR BUILT 
+The following model has the predictors BEDS, SQUARE_FEET, and YEAR_BUILT.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BEDBUILTFEET <- train(PRICE~ SQUARE_FEET + BEDS + YEAR_BUILT, 
@@ -170,8 +170,9 @@ model.BEDBUILTFEET <- train(PRICE~ SQUARE_FEET + BEDS + YEAR_BUILT,
 
 print(model.BEDBUILTFEET)
 ```
+The reported log(RMSE) is 11.75699.
 
-BEDS BATHS YEAR BUILT
+The following model has the predictors BEDS, BATHS, and YEAR_BUILT.
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.BEDBATHBUILT <- train(PRICE~ YEAR_BUILT + BEDS + BATHS, 
@@ -179,8 +180,13 @@ model.BEDBATHBUILT <- train(PRICE~ YEAR_BUILT + BEDS + BATHS,
 
 print(model.BEDBATHBUILT)
 ```
+The reported log(RMSE) is 12.18601.
 
-5) Cross validation using all 4 predictors
+With this group the best model considers the varaibles BEDS, SQUARE_FEET, and YEAR_BUILT. This model has the lowest RMSE. 
+
+__Problem 5__: Consider the only model that has four predictors. Using the 5-fold cross validation technique, calculate the RMSE of that model. 
+
+This models considers the variables SQUARE_FEET, BEDS, BATHS, and YEAR_BUILT. 
 ```{r}
 ctrl <- trainControl(method = "cv", number = 5)
 model.all <- train(PRICE~ SQUARE_FEET + BEDS + BATHS + YEAR_BUILT, 
@@ -188,5 +194,10 @@ model.all <- train(PRICE~ SQUARE_FEET + BEDS + BATHS + YEAR_BUILT,
 
 print(model.all)
 ```
+The reported log(RMSE) is 11.75016.
 
+
+__Problem 6__: Between all the models you fit to this data in parts  2-5 which one has the lowest RMSE or the best goodness of fit? Is that surprising?
+
+The best model is the model that examines all four variables. This model has the lowest RMSE. This is not suprising because it takes the most variables into consideration. 
 
