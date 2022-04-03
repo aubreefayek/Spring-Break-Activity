@@ -1,0 +1,677 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{MATH 237 Spring Break Activity}
+\author{Aubree Krager, Chandra Lindy, and Nicholas Noel}
+\date{April 4th, 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MATH 237 Spring Break Activity},
+  pdfauthor={Aubree Krager, Chandra Lindy, and Nicholas Noel},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\textbf{Problem 1}: In the Fullerton Housing data set, let PRICE be the
+response and consider BEDS, BATHS, SQUARE\_FEET, and YEAR-Built to be
+your predictors. First, fit a multiple linear regression model to this
+data will all four predictors in the model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{four.predictors}\OtherTok{=} \FunctionTok{lm}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BEDS}\SpecialCharTok{+}\NormalTok{ BATHS}\SpecialCharTok{+}\NormalTok{ SQUARE\_FEET }\SpecialCharTok{+}\NormalTok{YEAR\_BUILT, }\AttributeTok{data=}\NormalTok{FullertonHousing)}
+\NormalTok{four.predictors}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = PRICE ~ BEDS + BATHS + SQUARE_FEET + YEAR_BUILT, 
+##     data = FullertonHousing)
+## 
+## Coefficients:
+## (Intercept)         BEDS        BATHS  SQUARE_FEET   YEAR_BUILT  
+##   2387178.5      20692.6     -39189.0        318.7      -1137.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(four.predictors)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = PRICE ~ BEDS + BATHS + SQUARE_FEET + YEAR_BUILT, 
+##     data = FullertonHousing)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -480230  -72351   -9031   67732  535864 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 2387178.48  996225.92   2.396   0.0175 *  
+## BEDS          20692.62   13688.88   1.512   0.1323    
+## BATHS        -39188.98   18435.23  -2.126   0.0348 *  
+## SQUARE_FEET     318.71      20.02  15.918   <2e-16 ***
+## YEAR_BUILT    -1137.42     506.97  -2.244   0.0260 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 127200 on 190 degrees of freedom
+## Multiple R-squared:  0.8142, Adjusted R-squared:  0.8103 
+## F-statistic: 208.2 on 4 and 190 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+This model does not seem to fit the data accurately. There is a high
+standard error of \$127,200 with 190 degrees of freedom. This is
+probably not the best data to choose.
+
+\textbf{Problem 2}: Consider the four possible models that have only one
+predictor. Using the 5-fold cross validation technique, compare RMSE of
+the four models. Which one is a better model?
+
+This will perform 5-fold method for BEDS.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Fullerton}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(FullertonHousing)}
+
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.beds }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BEDS, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.beds)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   1 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 156, 155, 157 
+## Resampling results:
+## 
+##   RMSE    Rsquared  MAE   
+##   202890  0.513069  150784
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 12.19813.
+
+This will perform 5-fold method for BATHS.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.baths }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BATHS, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.baths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   1 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 155, 156, 155, 157, 157 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   218267.6  0.4664923  169245.3
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 12.2937.
+
+This will perform 5-fold method for SQUARE\_FEET.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.square.feet }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ SQUARE\_FEET, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.square.feet)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   1 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 155, 155, 156, 157, 157 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE    
+##   130934.5  0.8048523  99746.9
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 11.79194.
+
+Lastly, this will perform five-fold method on YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.year.built }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ YEAR\_BUILT, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.year.built)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   1 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 156, 157, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared     MAE     
+##   288873.6  0.007265773  226868.5
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 12.57814.
+
+After reviewing all RMSE's, the best model is formed under the variable
+SQUARE\_FEET. The model based on SQUARE\_FEET has the lowest RMSE.
+
+\textbf{Problem 3}: Consider all six models that have only two
+predictors. For example lm(PRICE\textasciitilde BEDS+BATHS). Using the
+5-fold cross validation technique, compare the RMSE of the six models.
+Which one is a better model?
+
+The following model has the predictors BEDS and BATHS.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BEDBATH }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ BATHS, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDBATH)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   2 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 156, 157, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   195482.8  0.5835595  144565.6
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) for this model is 12.16248.
+
+The following model has the predictors BEDS and SQUARE\_FEET.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BEDFOOT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ SQUARE\_FEET, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDFOOT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   2 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 157, 155, 157, 155, 156 
+## Resampling results:
+## 
+##   RMSE    Rsquared   MAE     
+##   130547  0.8102055  98983.03
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) for this model is 11.7949.
+
+The following model has the predictors BEDS and YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BEDBUILT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ YEAR\_BUILT, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDBUILT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   2 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 157, 156, 155, 156 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE   
+##   204501.9  0.5213959  153662
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) for this model is 12.2393.
+
+The following model has the predictors BATHS and SQUARE\_FEET.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BATHFOOT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BATHS }\SpecialCharTok{+}\NormalTok{ SQUARE\_FEET, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BATHFOOT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   2 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 157, 156, 155, 157, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   130483.6  0.7983264  97587.83
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) for this model is 11.77536.
+
+The following model has the predictors BATHS and YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BATHBUILT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ BATHS }\SpecialCharTok{+}\NormalTok{ YEAR\_BUILT, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BATHBUILT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   2 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 159, 155, 155, 156, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   215138.9  0.4832025  163037.7
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) for this model is 12.27687.
+
+The following model has the predictors SQUARE\_FEET and YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.SQUAREBUILT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ SQUARE\_FEET }\SpecialCharTok{+}\NormalTok{ YEAR\_BUILT, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.SQUAREBUILT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   2 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 157, 155, 156 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE    
+##   127887.7  0.8185241  94293.5
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) for this model is 11.7563.
+
+With this group the best model considers the varaibles SQUARE\_FEET and
+YEAR\_BUILT. This model has the lowest RMSE.
+
+\textbf{Problem 4}: Consider all four possible models that have three
+predictors. For example
+lm(PRICE\textasciitilde BEDS+BATHS+SQUARE\_FEET). Using the 5-fold cross
+validation technique compare the RMSE of the four models. Which one is a
+better model?
+
+The following model has the predictors BEDS, BATH, and SQUARE\_FEET.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BEDBATHFEET }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ SQUARE\_FEET }\SpecialCharTok{+}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ BATHS, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDBATHFEET)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   3 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 156, 157, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   129017.9  0.8108858  97439.14
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 11.75978.
+
+The following model has the predictors BATHSM, SQUARE\_FEET, and
+YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BATHFEETBUILT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ SQUARE\_FEET }\SpecialCharTok{+}\NormalTok{ YEAR\_BUILT }\SpecialCharTok{+}\NormalTok{ BATHS, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDBATHFEET)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   3 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 156, 157, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   129017.9  0.8108858  97439.14
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 11.75978.
+
+The following model has the predictors BEDS, SQUARE\_FEET, and
+YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BEDBUILTFEET }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ SQUARE\_FEET }\SpecialCharTok{+}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ YEAR\_BUILT, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDBUILTFEET)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   3 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 157, 156, 157, 155, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   132166.8  0.8060388  97521.27
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 11.75699.
+
+The following model has the predictors BEDS, BATHS, and YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.BEDBATHBUILT }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ YEAR\_BUILT }\SpecialCharTok{+}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ BATHS, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.BEDBATHBUILT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   3 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 156, 156, 156, 156, 156 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   192012.9  0.5978387  143254.4
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 12.18601.
+
+With this group the best model considers the varaibles BEDS,
+SQUARE\_FEET, and YEAR\_BUILT. This model has the lowest RMSE.
+
+\textbf{Problem 5}: Consider the only model that has four predictors.
+Using the 5-fold cross validation technique, calculate the RMSE of that
+model.
+
+This models considers the variables SQUARE\_FEET, BEDS, BATHS, and
+YEAR\_BUILT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ctrl }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+\NormalTok{model.all }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(PRICE}\SpecialCharTok{\textasciitilde{}}\NormalTok{ SQUARE\_FEET }\SpecialCharTok{+}\NormalTok{ BEDS }\SpecialCharTok{+}\NormalTok{ BATHS }\SpecialCharTok{+}\NormalTok{ YEAR\_BUILT, }
+               \AttributeTok{data =}\NormalTok{ FullertonHousing, }\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{trControl =}\NormalTok{ ctrl)}
+
+\FunctionTok{print}\NormalTok{(model.all)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linear Regression 
+## 
+## 195 samples
+##   4 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 155, 158, 155, 157, 155 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE     
+##   129642.6  0.8295824  94022.54
+## 
+## Tuning parameter 'intercept' was held constant at a value of TRUE
+\end{verbatim}
+
+The reported log(RMSE) is 11.75016.
+
+\textbf{Problem 6}: Between all the models you fit to this data in parts
+2-5 which one has the lowest RMSE or the best goodness of fit? Is that
+surprising?
+
+The best model is the model that examines all four variables. This model
+has the lowest RMSE. This is not suprising because it takes the most
+variables into consideration.
+
+\end{document}
